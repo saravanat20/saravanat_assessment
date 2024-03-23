@@ -1,0 +1,32 @@
+<!-- ag_grid_template.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>AG Grid Example</title>
+    <!-- Include AG Grid styles -->
+    <link href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css" rel="stylesheet">
+    <link href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css" rel="stylesheet">
+</head>
+<body>
+    <h1>AG Grid Example</h1>
+    <div id="grid" class="ag-theme-alpine" style="height: 500px; width: 600px;"></div>
+
+    <!-- Include AG Grid library -->
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var gridDiv = document.querySelector('#grid');
+            var gridOptions = {
+                columnDefs: [  // Define your column definitions here
+                    { headerName: 'Mobile', field: 'mobile' },
+                    { headerName: 'Email', field: 'email' },
+                    // Add more columns as needed
+                ],
+                rowData: {data_json}  // Pass your Django data to AG Grid
+            };
+            new agGrid.Grid(gridDiv, gridOptions);
+        });
+    </script>
+</body>
+</html>

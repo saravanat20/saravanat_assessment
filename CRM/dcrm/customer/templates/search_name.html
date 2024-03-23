@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3">
+
+
+{% if searched %}
+
+<h2>Users You Searched For ...</h2>
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-secondary">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">ID</th>
+        </tr>
+{% for named in names %}
+<tr>
+
+<td><a href="{% url 'record' named.id %}">{{named}}</a>  Click On Name For More Info</td><br/>
+<td><a href="{% url 'record' named.id %}">{{named.id}}</a></td>
+
+</tr>
+
+{% endfor %}
+</tbody>
+</table>
+
+{% else %}
+<h1>Forget to search</h1><br/>
+
+{% endif %}
+
+</div>
+
+{% endblock %}
+

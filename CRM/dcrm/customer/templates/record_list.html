@@ -1,0 +1,10 @@
+<!-- record_list.html -->
+<form method="get">
+    <input type="text" name="name" placeholder="Search by name">
+    <button type="submit">Search</button>
+</form>
+
+{% for record in object_list %}
+    <!-- Display your records here -->
+    {{ record.name }}
+{% endfor %}
